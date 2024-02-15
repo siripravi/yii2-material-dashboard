@@ -1,0 +1,26 @@
+var measureCircleText = function(ctx, text, x, y, radius){
+    var textWidth;
+    // get the width of all the text
+    textWidth = ctx.measureText(text).width;
+    return {
+        width               :textWidth,
+        angularWidth        : (1 / radius) * textWidth,
+        pixelAngularSize    : 1 / radius
+    }
+}
+
+$.jCanvas.extend({
+  name: 'arcText',
+  props: {
+    prop: true
+  },
+  fn: function(ctx, params) {
+        var p = params;
+		$.jCanvas.transformShape(this, ctx, p);
+		ctx.beginPath();
+		ctx.arc(x,y,radius,end,start,end>start?true:false);
+        ctx.stroke();
+		ctx.endPath();
+  }
+});
+
