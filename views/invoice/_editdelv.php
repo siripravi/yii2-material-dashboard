@@ -1,4 +1,5 @@
 <?php
+
 use kartik\editable\Editable;
 use yii\helpers\Url;
 use yii\helpers\Html;
@@ -29,10 +30,15 @@ $url = Url::to(['venue/venue-list']);
     'format' => Editable::FORMAT_BUTTON,
     'inputType' => Editable::INPUT_SELECT2,
     'inlineSettings' => [
-        // 'templateBefore' => Editable::INLINE_BEFORE_2,
-        // 'templateAfter' => Editable::INLINE_AFTER_2,
+         'templateBefore' => Editable::INLINE_BEFORE_2,
+         'templateAfter' => Editable::INLINE_AFTER_2,
         'class' => 'card card-success'
     ],
+    'editableButtonOptions' => [
+             'label'  => '<i class="bi bi-pencil"></i>'
+    ],
+    'preHeader' => '',
+    'footer' => '',
     'formOptions' => [
         'method' => 'post',
         'id' => 'form_name2',

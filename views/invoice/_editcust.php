@@ -1,4 +1,5 @@
 <?php
+
 use kartik\editable\Editable;
 use yii\helpers\Url;
 use yii\helpers\Html;
@@ -19,10 +20,14 @@ use yii\widgets\Pjax;
     'format' => Editable::FORMAT_BUTTON,
     'inputType' => Editable::INPUT_TYPEAHEAD,
     'inlineSettings' => [
-       // 'templateBefore' => Editable::INLINE_BEFORE_2,
-      //  'templateAfter' => Editable::INLINE_AFTER_2,
-      'class' => 'card bg-success text-white'
+        'templateBefore' => Editable::INLINE_BEFORE_2,
+         'templateAfter' => Editable::INLINE_AFTER_2,
+        'class' => 'card card-success'
     ],
+    'editableButtonOptions' => [
+        'label'  => '<i class="bi bi-pencil"></i>'
+],
+    'preHeader' => '',
     'formOptions' => [
         'method' => 'post',
         'id' => 'form_name',
@@ -36,8 +41,8 @@ use yii\widgets\Pjax;
             [
                 'datumTokenizer' => "Bloodhound.tokenizers.obj.whitespace('value')",
                 'display' => 'value',
-                 //'prefetch' => \yii\helpers\Json::encode([['value' => $customer->fullName]]),
-                 'initialize' => false,
+                //'prefetch' => \yii\helpers\Json::encode([['value' => $customer->fullName]]),
+                'initialize' => false,
                 'remote' => [
                     'url' => Url::to(['customer/typehead']) . '?q=%QUERY',
                     'wildcard' => '%QUERY'
@@ -59,7 +64,8 @@ use yii\widgets\Pjax;
                       //  console.log(val); console.log(data.url); if(data.status){ window.location.href = data.url;}
 						$.pjax.reload({container: '#cust-address-cont'});
                         }"
-                    ], 'contentOptions' => ['style' => 'width:350px'],
+    ],
+    'contentOptions' => ['style' => 'width:350px'],
 ]);
 $form = $editable->getForm();
 echo $form->field($customer, 'customer_no')->hiddenInput()->label(false);

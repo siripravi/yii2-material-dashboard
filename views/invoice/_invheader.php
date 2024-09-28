@@ -1,4 +1,5 @@
 <?php
+
 use kartik\editable\Editable;
 use yii\helpers\Url;
 
@@ -10,35 +11,32 @@ use yii\helpers\Html;
  */
 ?>
 <div class="card">
-	<div class="card-header card-header-tabs card-header-primary">
-		<div class="nav-tabs-navigation">
-			<div class="nav-tabs-wrapper">
-				<span class="nav-tabs-title">Tasks:</span>
-				<ul class="nav nav-tabs" data-tabs="tabs">
-					<li class="nav-item">
-						<a class="nav-link active" href="#home" data-bs-toggle="tab">
-							<i class="material-icons">bug_report</i> Home
-							<div class="ripple-container"></div>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#customer" data-bs-toggle="tab">
-							<i class="material-icons">code</i> Billing
-							<div class="ripple-container"></div>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#delivery" data-bs-toggle="tab">
-							<i class="material-icons">cloud</i> Delivery
-							<div class="ripple-container"></div>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
+	<div class="card-header">
+		<h5 class="card-title">Invoice</h5>
 	</div>
-	<div class="card-body text-center" id="xinvoice">
-		<div class="tab-content">
+	<div class="card-body">
+
+		<ul class="nav nav-tabs card-header-tabs" data-bs-tabs="tabs">
+			<li class="nav-item">
+				<a class="nav-link active" href="#home" data-bs-toggle="tab">
+					<i class="material-icons">bug_report</i> Home
+					<div class="ripple-container"></div>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#customer" data-bs-toggle="tab">
+					<i class="material-icons">code</i> Billing
+					<div class="ripple-container"></div>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#delivery" data-bs-toggle="tab">
+					<i class="material-icons">cloud</i> Delivery
+					<div class="ripple-container"></div>
+				</a>
+			</li>
+		</ul>
+		<div class="tab-content" style="margin-top:36px;">
 			<div class="tab-pane active" id="home">
 				<?php
 				app\components\AngularHelper::begin(
@@ -65,7 +63,8 @@ use yii\helpers\Html;
 				<div class="object-form">
 					<div id="custContent">
 						<?php
-						//\yii\widgets\Pjax::begin(['id' => 'pjax-container', 'enablePushState' => false]); ?>
+						//\yii\widgets\Pjax::begin(['id' => 'pjax-container', 'enablePushState' => false]); 
+						?>
 						<?= $this->render('_editcust', ['customer' => $customer, 'stmt' => $stmt]);
 						//\yii\widgets\Pjax::end();
 						?>
@@ -76,7 +75,8 @@ use yii\helpers\Html;
 				<div class="object-form">
 					<div id="delvContent">
 						<?php
-						//\yii\widgets\Pjax::begin(['id' => 'pjax-container', 'enablePushState' => false]); ?>
+						//\yii\widgets\Pjax::begin(['id' => 'pjax-container', 'enablePushState' => false]); 
+						?>
 						<?= $this->render('_editdelv', ['delivery' => $delivery, 'stmt' => $stmt]);
 						//\yii\widgets\Pjax::end();
 						?>

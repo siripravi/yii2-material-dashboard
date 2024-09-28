@@ -99,14 +99,11 @@ use yii\helpers\Url;
         ],
     ],
 ]); ?>
-<div class="form-group pull-right">
 
-</div>
-<div id="inv-itm-detail">
-    <h4>Add Invoice Line Items</h4>
-    <table id="tabl-inv-items" class="table table-striped table-bordered">
-        <thead>
-            <tr>
+<div id="inv-itm-detail" class="table-responsive">
+    
+    <table id="tabl-inv-items" class="table table-light mb-0">
+        <thead>    <tr>
 
                 <td colspan="5">
                     <p style="float:left;">

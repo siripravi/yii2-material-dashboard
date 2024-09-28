@@ -68,8 +68,6 @@ $pk = $model->primaryKey;
   </div>
 <?php endif; ?>
 
-
-
 <script>
   // Passing parameters to the script / controller without using placeholders:
   function setYiiParams(params) {

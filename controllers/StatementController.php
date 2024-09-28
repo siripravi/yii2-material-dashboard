@@ -235,13 +235,14 @@ class StatementController extends Controller
                 $invItem->st_type = $inv->st_type;
                 if ($item->id > 0) {
                     $invItem->id = (int) $item->id;
-                    $invItem = StatementItems::find($invItem->id)->one();
+                    $invItem = StatementItems::find()->where(['id'=>$item->id])->one();                    
                     $invItem->sequence = $k + 1;
                     if (!empty($invItem)) {
                         $invItem->st_type = $inv->st_type;
                         $invItem->description = $item->description;
                         $invItem->quantity = $item->quantity;
                         $invItem->price = $item->price;
+                    
                         if ($item->status == StatementItems::ITEM_STATUS_DELETE)
                             $invItem->delete();
                         else
